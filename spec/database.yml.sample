@@ -1,0 +1,6 @@
+postgresql:
+  adapter:      postgresql
+  host:         localhost
+  username:     postgres
+  database:     postgres
+  min_messages: error
