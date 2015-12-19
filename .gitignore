@@ -2,3 +2,4 @@
 /spec/database.yml
 /procedural-*.gem
 /Gemfile.lock
+/pkg/
