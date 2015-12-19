@@ -14,3 +14,12 @@ end
 group :test do
   gem 'simplecov',            require: false
 end
+
+version = ENV['RAILS_VERSION'] || 'default'
+
+case version
+when 'default'
+  gem 'activerecord', '>= 4.2'
+else
+  gem 'activerecord', "~> #{version}"
+end
