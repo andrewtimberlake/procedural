@@ -25,8 +25,8 @@ shared_examples_for "an adapter" do
   describe "create trigger migration" do
     create_procedure_migration = Class.new(ActiveRecord::Migration) do
       def change
-        create_procedure :test_procedure, language: 'plpgsql', returns: 'trigger', sql: "RETURN NEW;"
-        create_trigger :users, :users_trigger, :test_procedure
+        create_procedure :test_procedure2, language: 'plpgsql', returns: 'trigger', sql: "RETURN NEW;"
+        create_trigger :users, :users_trigger, :test_procedure2
       end
     end
 
