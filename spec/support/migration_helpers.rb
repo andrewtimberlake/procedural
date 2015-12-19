@@ -5,7 +5,7 @@ shared_examples_for "an adapter" do
   describe "create procedure migration" do
     create_procedure_migration = Class.new(ActiveRecord::Migration) do
       def change
-        create_procedure :test_procedure, language: 'plpgsql', returns: 'text', sql: <<-SQL.strip_heredoc
+        create_procedure :test_procedure, language: 'plpgsql', returns: 'text', sql: <<-SQL
         RETURN "Hello World";
       SQL
       end
