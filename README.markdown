@@ -1,4 +1,4 @@
-# Procedural
+# Procedural [![Build Status](https://travis-ci.org/andrewtimberlake/procedural.svg)](https://travis-ci.org/andrewtimberlake/procedural) [![Code Climate](https://codeclimate.com/github/andrewtimberlake/procedural/badges/gpa.svg)](https://codeclimate.com/github/andrewtimberlake/procedural)
 
 Procedural adds the ability to add functions and triggers via ActiveRecord migrations.
 
