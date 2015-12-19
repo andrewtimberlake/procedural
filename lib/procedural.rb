@@ -6,7 +6,7 @@ require 'procedural/adapters'
 ActiveRecord::ConnectionAdapters::AbstractAdapter.class_eval do
   alias_method(:_procedural_original_inherited, :inherited) if method_defined?(:inherited)
 
-  def self.inherited(klass)
+  def self.inherited(_klass)
     ::Procedural::load_adapters
     _procedural_orig_inherited if method_defined?(:_procedural_original_inherited)
   end
