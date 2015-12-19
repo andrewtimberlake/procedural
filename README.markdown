@@ -6,14 +6,14 @@ Thanks to [Spectacles](https://github.com/liveh2o/spectacles) where I took much 
 
 ## Installation
 
-```
+```bash
 gem install procedural   #=> or include it in your Gemfile
 ```
 
 ## Example Migration
 
 ```ruby
-class AddCreatedAtTrigger < ActiveRecord::Migration
+class AddTimestampTriggers < ActiveRecord::Migration
   def change
     create_procedure :created_at_trigger, language: 'plpgsql', returns: 'trigger' do
       <<-SQL
