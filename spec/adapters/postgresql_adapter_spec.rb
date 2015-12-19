@@ -27,6 +27,19 @@ module Procedural
               END IF;
               RETURN NEW;
           SQL
+        end
+
+        it "accepts SQL from a block" do
+          sql = shared_base.create_procedure(:created_at_trigger, language: 'plpgsql', returns: 'trigger') do
+            <<-SQL
+              IF (TG_OP = 'UPDATE') THEN
+                NEW."created_at" := OLD."created_at";
+              ELSIF (TG_OP = 'INSERT') THEN
+                NEW."created_at" := CURRENT_TIMESTAMP;
+              END IF;
+              RETURN NEW;
+            SQL
+          end
 
           expect(sql).to_match(/CREATE OR REPLACE FUNCTION created_at_trigger/);
           expect(sql).to_match(/IF \(TG_OP = 'UPDATE'/);

@@ -15,19 +15,23 @@ gem install procedural   #=> or include it in your Gemfile
 ```ruby
 class AddCreatedAtTrigger < ActiveRecord::Migration
   def change
-    create_procedure :created_at_trigger, language: 'plpgsql', returns: 'trigger', sql: <<-SQL
-              IF (TG_OP = 'UPDATE') THEN
-                NEW."created_at" := OLD."created_at";
-              ELSIF (TG_OP = 'INSERT') THEN
-                NEW."created_at" := CURRENT_TIMESTAMP;
-              END IF;
-              RETURN NEW;
-          SQL
+    create_procedure :created_at_trigger, language: 'plpgsql', returns: 'trigger' do
+      <<-SQL
+        IF (TG_OP = 'UPDATE') THEN
+          NEW."created_at" := OLD."created_at";
+        ELSIF (TG_OP = 'INSERT') THEN
+          NEW."created_at" := CURRENT_TIMESTAMP;
+        END IF;
+        RETURN NEW;
+      SQL
+    end
 
-    create_procedure :updated_at_trigger, language: 'plpgsql', returns: 'trigger', sql: <<-SQL
-              NEW."updated_at" := CURRENT_TIMESTAMP;
-              RETURN NEW;
-          SQL
+    create_procedure :updated_at_trigger, language: 'plpgsql', returns: 'trigger' do
+      <<-SQL
+        NEW."updated_at" := CURRENT_TIMESTAMP;
+        RETURN NEW;
+      SQL
+    end
 
     create_trigger :users, :users_created_at, :created_at_trigger
     create_trigger :users, :users_updated_at, :updated_at_trigger

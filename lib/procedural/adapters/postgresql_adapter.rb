@@ -8,7 +8,7 @@ module Procedural
         procedure_name = args.shift
         language = options.fetch(:language)
         returns = options.fetch(:returns)
-        sql = options.fetch(:sql)
+        sql = options.fetch(:sql) { yield }
 
         execute(<<-SQL)
 CREATE OR REPLACE FUNCTION #{quote_column_name(procedure_name)}()
