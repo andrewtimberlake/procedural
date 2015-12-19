@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 require 'active_record'
-require 'procedural/procedure'
 require 'procedural/adapters'
 
 ActiveRecord::ConnectionAdapters::AbstractAdapter.class_eval do
