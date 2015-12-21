@@ -11,9 +11,9 @@ rvm:
   - 2.2.3
 matrix:
   exclude:
-    - env "RAILS_VERSION=5.0.0.beta1"
-      rvm 2.0
-    - env "RAILS_VERSION=5.0.0.beta1"
-      rvm 2.1.7
+    - env: "RAILS_VERSION=5.0.0.beta1"
+      rvm: 2.0
+    - env: "RAILS_VERSION=5.0.0.beta1"
+      rvm: 2.1.7
 before_script:
   - cp spec/database.yml.sample spec/database.yml
